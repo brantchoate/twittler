@@ -3,6 +3,7 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="node_modules/moment/moment.js"></script>
   </head>
   <body>
     <script>
@@ -10,14 +11,13 @@
       $(document).ready(function(){
         var $body = $('body');
         
-
         var loadStream = function(){
           $body.html('');
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.text('@' + tweet.user + ': ' + tweet.message + '(' + moment(tweet.created_at).fromNow() + ')');
             $tweet.appendTo($body);
             index -= 1;
           }
@@ -25,7 +25,7 @@
 
 
         loadStream();
-        window.setInterval(loadStream, 10000);
+        window.setInterval(loadStream, 1000000);
 
 
         //code block that runs every 5 secs
