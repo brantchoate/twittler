@@ -6,17 +6,19 @@
 // set up data structures
 window.streams = {};
 streams.home = [];
-streams.users = {};
-streams.users.shawndrost = [];
-streams.users.sharksforcheap = [];
-streams.users.mracus = [];
-streams.users.douglascalhoun = [];
+streams.users = {
+  'shawndrost' : {'name': 'Shawn Drost', 'photo': 'http://api.randomuser.me/portraits/thumb/men/11.jpg', 'tweets':[]},
+  'sharksforcheap' : {'name': 'Sharks For Cheap', 'photo': 'http://api.randomuser.me/portraits/thumb/women/12.jpg', 'tweets':[]},
+  'mracus' : {'name': 'Marcus Phillips', 'photo': 'http://api.randomuser.me/portraits/thumb/men/13.jpg', 'tweets':[]},
+  'douglascalhoun' : {'name': 'Doug Calhoun', 'photo': 'http://api.randomuser.me/portraits/thumb/men/1.jpg', 'tweets':[]}
+};
+
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
   var username = newTweet.user;
-  streams.users[username].push(newTweet);
+  streams.users[username].tweets.push(newTweet);
   streams.home.push(newTweet);
 };
 
