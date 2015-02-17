@@ -26,6 +26,6 @@
 
 
     loadStream();
-    window.setInterval(loadStream, 1000000);
+    window.setInterval(loadStream, 10000);
 
   });
