@@ -10,7 +10,8 @@ streams.users = {
   'shawndrost' : {'name': 'Shawn Drost', 'photo': 'http://api.randomuser.me/portraits/thumb/men/11.jpg', 'tweets':[]},
   'sharksforcheap' : {'name': 'Sharks For Cheap', 'photo': 'http://api.randomuser.me/portraits/thumb/women/12.jpg', 'tweets':[]},
   'mracus' : {'name': 'Marcus Phillips', 'photo': 'http://api.randomuser.me/portraits/thumb/men/13.jpg', 'tweets':[]},
-  'douglascalhoun' : {'name': 'Doug Calhoun', 'photo': 'http://api.randomuser.me/portraits/thumb/men/1.jpg', 'tweets':[]}
+  'douglascalhoun' : {'name': 'Doug Calhoun', 'photo': 'http://api.randomuser.me/portraits/thumb/men/1.jpg', 'tweets':[]},
+  'brantchoate' : {'name': 'Brant Choate', 'photo': 'https://pbs.twimg.com/profile_images/534831029530288128/T0xV6NIL_bigger.png', 'tweets':[]}
 };
 
 window.users = Object.keys(streams.users);
