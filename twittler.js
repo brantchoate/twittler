@@ -6,7 +6,13 @@
       return streams.users[user];
     };
 
-    var loadStream = function(){
+    var loadStream = function(user){
+      if(user !== undefined){
+        streams.home = streams.home.filter(function(tw){
+          return tw.user === user;
+        });
+      }
+
       $('.tweets').html('');
       var index = streams.home.length - 1;
       while(index >= 0){
@@ -16,7 +22,7 @@
         var current_user = findUser(tweet.user);
         $img.attr('src', current_user.photo);
         $tweet.append($img);
-        $tweet.append('<h2>' + current_user.name + '<span class="username">@' + tweet.user +'</span><span class="time">&bull; ' + moment(tweet.created_at).fromNow() + '</span></h2>');
+        $tweet.append('<h2>' + current_user.name + '<a href="#" class="username" data-user="'+tweet.user+'">@' + tweet.user +'</a><span class="time">&bull; ' + moment(tweet.created_at).fromNow() + '</span></h2>');
         $tweet.append('<p>' + tweet.message + '</p>');
         $tweet.append('<div class="clear"></div>');
         $tweet.appendTo('.tweets');
@@ -40,11 +46,17 @@
        newTweet($('.addTweet input').val());
        $('.addTweet input').val('');
     });
+
     $('.addTweet input').keyup(function(e){
         if(e.keyCode == 13)
         {
             $(this).trigger("enterKey");
         }
+    });
+
+    $('.tweets').on('click', 'a.username', function(e){
+      e.preventDefault();
+      loadStream($(this).attr('data-user'));
     });
 
 
